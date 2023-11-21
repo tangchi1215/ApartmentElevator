@@ -5,30 +5,54 @@ public class MyElevator {
     private final int MIN_FLOOR = 1;
     private boolean isOpened = false;
 
-    private int currentFloor = 1;
+    private int currentFloor = MIN_FLOOR;
 
     public void open() {
-        System.out.println("Try to open door,");
-        isOpened = true;
-        System.out.println("Door is open now.");
+        if (isOpened) {
+            System.out.println("The door is opened, can't open again !!");
+        } else {
+            System.out.println("Try to open door,");
+            isOpened = true;
+            System.out.println("The door is open now.");
+        }
     }
 
     public void close() {
-        System.out.println("Try to close door,");
-        isOpened = false;
-        System.out.println("Door is close now.");
+        if (!isOpened) {
+            System.out.println("The door is closed. Can't close again !!");
+        } else {
+            System.out.println("Try to close door,");
+            isOpened = false;
+            System.out.println("The door is close now.");
+        }
     }
 
     public void up() {
-        System.out.println("Elevator up...");
-        currentFloor++;
-        System.out.println("Now"+ currentFloor +".");
+        if(currentFloor >= MAX_FLOOR) {
+            System.out.println("It's " + currentFloor + "F. Can't go up anymore.");
+        } else {
+            if (isOpened) {
+                System.out.println("The door is opened now. Must be closed before go up.");
+            } else {
+                System.out.println("Elevator up...");
+                currentFloor++;
+                System.out.println("Now"+ currentFloor +".");
+            }
+        }
     }
 
     public void down() {
-        System.out.println("Elevator down...");
-        currentFloor--;
-        System.out.println("Now"+ currentFloor +".");
+        if (currentFloor <= MIN_FLOOR) {
+            System.out.println("It's " + currentFloor + "F. Can't go down anymore.");
+        } else {
+            if (isOpened) {
+                System.out.println("The door is opened now. Must be closed before go up.");
+            } else {
+                System.out.println("Elevator down...");
+                currentFloor++;
+                System.out.println("Now" + currentFloor + ".");
+            }
+        }
     }
 
 
@@ -36,4 +60,4 @@ public class MyElevator {
 
 
 
-}
+    }
