@@ -36,7 +36,7 @@ public class MyElevator {
             } else {
                 System.out.println("Elevator up...");
                 currentFloor++;
-                System.out.println("Now"+ currentFloor +".");
+                System.out.println("Now "+ currentFloor +".");
             }
         }
     }
@@ -50,14 +50,19 @@ public class MyElevator {
             } else {
                 System.out.println("Elevator down...");
                 currentFloor++;
-                System.out.println("Now" + currentFloor + ".");
+                System.out.println("Now " + currentFloor + ".");
             }
         }
     }
 
-
-
-
-
+    public void toFloor(int targetFloor) {
+        while (currentFloor != targetFloor) {
+            if (currentFloor < targetFloor) {
+                up();
+            } else {
+                down();
+            }
+        }
+    }
 
     }
